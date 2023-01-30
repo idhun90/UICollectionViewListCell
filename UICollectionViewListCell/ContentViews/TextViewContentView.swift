@@ -28,13 +28,13 @@ final class TextViewContentView: UIView, UIContentView {
     }
     
     override var intrinsicContentSize: CGSize {
-        CGSize(width: 0, height: 44)
+        CGSize(width: 0, height: 200)
     }
     
     init(_ configuration: UIContentConfiguration) {
         self.configuration = configuration
         super.init(frame: .zero)
-        addSubView(textView, height: 200, insets: UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15))
+        addSubView(textView, insets: UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15))
         textView.delegate = self
         textView.backgroundColor = nil
         textView.font = UIFont.preferredFont(forTextStyle: .body)
@@ -63,7 +63,7 @@ extension TextViewContentView: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.textColor = .placeholderText
-            textView.text = "메모를 입력하세요."
+            textView.text = "Note"
         }
     }
     

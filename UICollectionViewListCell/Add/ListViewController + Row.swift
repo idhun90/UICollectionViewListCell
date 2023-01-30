@@ -19,8 +19,16 @@ extension ListViewController {
         case clothFit
         case clothSize
         case clothOrderDate(Date)
-        case clothSatisfaction
+        case clothRating
         case clothMemo(String?)
+        case shoulder(Double?)
+        case chest(Double?)
+        case sleeve(Double?)
+        case waist(Double?)
+        case thigh(Double?)
+        case rise(Double?)
+        case ankle(Double?)
+        case length(Double?)
         
         var textStyle: UIFont.TextStyle {
             switch self {
@@ -41,8 +49,16 @@ extension ListViewController {
             case .clothFit: return "Fit"
             case .clothSize: return "Size"
             case .clothOrderDate(_): return "OrderDate"
-            case .clothSatisfaction: return "SatisFaction"
+            case .clothRating: return "Rating"
             case .clothMemo(_): return "Note"
+            case .shoulder(_): return "Shoulder"
+            case .chest(_): return "Chest"
+            case .sleeve(_): return "Sleeve"
+            case .waist(_): return "Waist"
+            case .thigh(_): return "Thigh"
+            case .rise(_): return "rise"
+            case .ankle(_): return "ankle"
+            case .length(_): return "length"
             }
         }
     }

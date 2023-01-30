@@ -65,11 +65,11 @@ extension ListViewController {
                              toSection: .category)
         snapShot.appendItems([.header(Section.info.name), .clothName(""), .clothBrand, .clothColor(""), .clothPrice, .clothOrderDate(Date.now)],
                              toSection: .info)
-        snapShot.appendItems([.header(Section.size.name), .clothSize, .clothFit, .clothSatisfaction],
+        snapShot.appendItems([.header(Section.size.name), .clothSize, .clothFit, .clothRating, .shoulder(0.0), .chest(0.0), .sleeve(0.0), .length(0.0)],
                              toSection: .size)
         snapShot.appendItems([.header(Section.url.name), .clothOrderURL("")],
                              toSection: .url)
-        snapShot.appendItems([.header(Section.memo.name), .clothMemo("메모를 입력하세요.")],
+        snapShot.appendItems([.header(Section.memo.name), .clothMemo("Note")],
                              toSection: .memo)
         
         dataSource.apply(snapShot)
@@ -81,19 +81,31 @@ extension ListViewController {
         case (_, .header(let title)):
             cell.contentConfiguration = headerContentConfiguration(for: cell, with: title)
         case (.category, _):
-            cell.contentConfiguration = ListContentConfiguration(for: cell, with: Row.clothCategory.name)
+            cell.contentConfiguration = listContentConfiguration(for: cell, with: Row.clothCategory.name)
         case (.info, .clothName(let text)):
             cell.contentConfiguration = textFieldContentConfiguration(for: cell, with: text, placeholder: Row.clothName("").name)
         case (.info, .clothBrand):
-            cell.contentConfiguration = ListContentConfiguration(for: cell, with: Row.clothBrand.name)
+            cell.contentConfiguration = listContentConfiguration(for: cell, with: Row.clothBrand.name)
         case (.info, .clothColor(let text?)):
             cell.contentConfiguration = textFieldContentConfiguration(for: cell, with: text, placeholder: Row.clothColor(nil).name)
         case (.info, .clothPrice):
             cell.contentConfiguration = textFieldContentConfiguration(for: cell, with: nil, placeholder: Row.clothPrice.name, keyboardType: .numberPad)
         case (.info, .clothOrderDate(let date)):
             cell.contentConfiguration = dateContentConfiguration(for: cell, with: date)
-        case (.size, _):
-            cell.contentConfiguration = textFieldContentConfiguration(for: cell, with: nil, placeholder: "실측 사이즈 입력", keyboardType: .decimalPad)
+        case (.size, .clothFit):
+            cell.contentConfiguration = listContentConfiguration(for: cell, with: Row.clothFit.name)
+        case (.size, .clothSize):
+            cell.contentConfiguration = listContentConfiguration(for: cell, with: Row.clothSize.name)
+        case (.size, .clothRating):
+            cell.contentConfiguration = listContentConfiguration(for: cell, with: Row.clothRating.name)
+        case (.size, .shoulder(let number?)):
+            cell.contentConfiguration = textFieldContentConfiguration(for: cell, with: nil, placeholder: Row.shoulder(nil).name, keyboardType: .decimalPad)
+        case (.size, .chest(let number?)):
+            cell.contentConfiguration = textFieldContentConfiguration(for: cell, with: nil, placeholder: Row.chest(nil).name, keyboardType: .decimalPad)
+        case (.size, .sleeve(let number?)):
+            cell.contentConfiguration = textFieldContentConfiguration(for: cell, with: nil, placeholder: Row.sleeve(nil).name, keyboardType: .decimalPad)
+        case (.size, .length(let number?)):
+            cell.contentConfiguration = textFieldContentConfiguration(for: cell, with: nil, placeholder: Row.length(nil).name, keyboardType: .decimalPad)
         case (.url, .clothOrderURL(let url)):
             var contentConfiguration = textFieldContentConfiguration(for: cell, with: url, placeholder: Row.clothOrderURL(nil).name, keyboardType: .URL)
             contentConfiguration.textColor = .link
@@ -107,7 +119,7 @@ extension ListViewController {
     
     private func section(for indexPath: IndexPath) -> Section {
         guard let section = Section(rawValue: indexPath.section) else {
-            fatalError("매칭되는 section 없음")
+            fatalError("Can't find section ")
         }
         return section
     }
@@ -117,7 +129,6 @@ extension ListViewController {
 extension ListViewController {
     private func defaultContentConfiguration(for cell: UICollectionViewListCell, at row: Row) -> UIListContentConfiguration {
         var contentConfiguration = cell.defaultContentConfiguration()
-        contentConfiguration.text = "테스트"
         contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: row.textStyle)
         cell.contentConfiguration = contentConfiguration
         
@@ -135,7 +146,7 @@ extension ListViewController {
         return contentConfiguration
     }
     
-    private func ListContentConfiguration(for cell: UICollectionViewListCell, with text: String) -> UIListContentConfiguration {
+    private func listContentConfiguration(for cell: UICollectionViewListCell, with text: String) -> UIListContentConfiguration {
         var contentConfiguration = UIListContentConfiguration.valueCell()
         contentConfiguration.text = text
         contentConfiguration.secondaryText = "None"
@@ -169,7 +180,6 @@ extension ListViewController {
 
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        print(indexPath)
         return false
     }
 }

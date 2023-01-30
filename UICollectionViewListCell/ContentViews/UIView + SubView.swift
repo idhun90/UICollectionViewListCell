@@ -14,7 +14,7 @@ extension UIView {
         subView.topAnchor.constraint(equalTo: topAnchor, constant: insets.top).isActive = true
         subView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets.left).isActive = true
         subView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -1.0 * insets.right).isActive = true
-        subView.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor, constant: -1.0 * insets.bottom).isActive = true
+        subView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -1.0 * insets.bottom).isActive = true
         if let height = height {
             subView.heightAnchor.constraint(equalToConstant: height).isActive = true
         }

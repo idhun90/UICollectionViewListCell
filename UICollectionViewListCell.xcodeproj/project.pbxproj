@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1400DCF3298775A900E78FFC /* TextViewContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1400DCF2298775A900E78FFC /* TextViewContentView.swift */; };
 		14789CEC2986C04700FE6CD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14789CEB2986C04700FE6CD3 /* AppDelegate.swift */; };
 		14789CEE2986C04700FE6CD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14789CED2986C04700FE6CD3 /* SceneDelegate.swift */; };
 		14789CF32986C04700FE6CD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14789CF12986C04700FE6CD3 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1400DCF2298775A900E78FFC /* TextViewContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewContentView.swift; sourceTree = "<group>"; };
 		14789CE82986C04700FE6CD3 /* UICollectionViewListCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICollectionViewListCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14789CEB2986C04700FE6CD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14789CED2986C04700FE6CD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,12 +70,12 @@
 			children = (
 				14789CEB2986C04700FE6CD3 /* AppDelegate.swift */,
 				14789CED2986C04700FE6CD3 /* SceneDelegate.swift */,
+				14789D082986E5A000FE6CD3 /* ContentViews */,
+				14789D052986E57900FE6CD3 /* Add */,
 				14789CF12986C04700FE6CD3 /* Main.storyboard */,
 				14789CF42986C04800FE6CD3 /* Assets.xcassets */,
 				14789CF62986C04800FE6CD3 /* LaunchScreen.storyboard */,
 				14789CF92986C04800FE6CD3 /* Info.plist */,
-				14789D082986E5A000FE6CD3 /* ContentViews */,
-				14789D052986E57900FE6CD3 /* Add */,
 			);
 			path = UICollectionViewListCell;
 			sourceTree = "<group>";
@@ -91,6 +93,7 @@
 		14789D082986E5A000FE6CD3 /* ContentViews */ = {
 			isa = PBXGroup;
 			children = (
+				1400DCF2298775A900E78FFC /* TextViewContentView.swift */,
 				14789D0D2986F62C00FE6CD3 /* DatePickerContentView.swift */,
 				14789D062986E59C00FE6CD3 /* TextFieldContentView.swift */,
 				14789D092986E60A00FE6CD3 /* UIView + SubView.swift */,
@@ -175,6 +178,7 @@
 				14789CEE2986C04700FE6CD3 /* SceneDelegate.swift in Sources */,
 				14789D072986E59C00FE6CD3 /* TextFieldContentView.swift in Sources */,
 				14789D002986C0C100FE6CD3 /* ListViewController.swift in Sources */,
+				1400DCF3298775A900E78FFC /* TextViewContentView.swift in Sources */,
 				14789D042986CFA800FE6CD3 /* ListViewController + Section.swift in Sources */,
 				14789D022986C6A800FE6CD3 /* ListViewController + Row.swift in Sources */,
 			);

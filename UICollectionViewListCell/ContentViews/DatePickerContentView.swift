@@ -10,6 +10,7 @@ import UIKit
 final class DatePickercontentView: UIView, UIContentView {
     struct Configuration: UIContentConfiguration {
         var date = Date.now
+        var text = ""
         
         func makeContentView() -> UIView & UIContentView {
             return DatePickercontentView(self)
@@ -37,7 +38,6 @@ final class DatePickercontentView: UIView, UIContentView {
         label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
         label.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        label.text = "구매일"
         
         addSubview(datePicker)
         datePicker.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +52,7 @@ final class DatePickercontentView: UIView, UIContentView {
     
     @objc private func didPick(_ sender: UIDatePicker) {
     }
+    
     required init?(coder: NSCoder) {
         fatalError()
     }
@@ -59,6 +60,7 @@ final class DatePickercontentView: UIView, UIContentView {
     func configure(configuration: UIContentConfiguration) {
         guard let configuration = configuration as? Configuration else { return }
         datePicker.date = configuration.date // 값전달인듯
+        label.text = configuration.text
     }
 }
 

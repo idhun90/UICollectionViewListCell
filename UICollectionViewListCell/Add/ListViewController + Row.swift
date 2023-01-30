@@ -14,12 +14,13 @@ extension ListViewController {
         case clothName(String)
         case clothBrand
         case clothColor(String?)
+        case clothPrice
+        case clothOrderURL(String?)
         case clothFit
         case clothSize
         case clothOrderDate(Date)
         case clothSatisfaction
-        case clothOrderURL(String?)
-        case clothMemo
+        case clothMemo(String?)
         
         var textStyle: UIFont.TextStyle {
             switch self {
@@ -31,16 +32,17 @@ extension ListViewController {
         var name: String {
             switch self {
             case .header(_): return ""
-            case .clothCategory: return "카테고리"
-            case .clothName(_): return "제품명"
-            case .clothBrand: return "브랜드"
-            case .clothColor(_): return "색상"
-            case .clothFit: return "핏"
-            case .clothSize: return "사이즈"
-            case .clothOrderDate: return "구매일"
-            case .clothSatisfaction: return "만족도"
-            case .clothOrderURL: return "URL"
-            case .clothMemo: return "메모"
+            case .clothCategory: return "Category"
+            case .clothName(_): return "Name"
+            case .clothBrand: return "Brand"
+            case .clothColor(_): return "Color"
+            case .clothPrice: return "Price"
+            case .clothOrderURL(_): return "Url"
+            case .clothFit: return "Fit"
+            case .clothSize: return "Size"
+            case .clothOrderDate(_): return "OrderDate"
+            case .clothSatisfaction: return "SatisFaction"
+            case .clothMemo(_): return "Note"
             }
         }
     }
